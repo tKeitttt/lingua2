@@ -7,9 +7,91 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    
+    <div class="wrapper">
+    <div class="header">
+
+      <div class="app-name">
+        <a class="app-name-link" href="#">Linga</a>
+      </div>
+
+      <div class="user-name">
+        <div>●</div>
+        <div class="name">Toby</div>
+        <div class="dropdown">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Post articles</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Notifications</a>
+            <a class="dropdown-item" href="#">Setting</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+    <div class="menu-bar">
+      <div class="learning">
+        <div class="dropdown">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Progress</a>
+            <a class="dropdown-item" href="#">Register</a>
+            <a class="dropdown-item" href="#">Search phrases</a>
+            <a class="dropdown-item" href="#">Exercise</a>
+          </div>
+        </div>
+        <div class="menu-title"> Learning</div>
+      </div>
+      
+      <div class="communication">
+        <div class="dropdown">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Partners</a>
+            <a class="dropdown-item" href="#">Chat room</a>
+          </div>
+        </div>
+        <div class="menu-title"> Communication</div>
+      </div>
+
+
+      <div class="articles">
+        <div class="dropdown">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Post articles</a>
+            <a class="dropdown-item" href="#">Search articles</a>
+          </div>
+        </div>
+        <div class="menu-title">Articles</div>
+      </div>
+    
+    </div>
+
+    <div class="main-area">
+     <%= yield %>
+    </div>
+
+
+    </div>
   </body>
+
 </html>

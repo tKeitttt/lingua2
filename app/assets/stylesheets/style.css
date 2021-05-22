@@ -5,7 +5,7 @@ a {
 
 
 .wrapper{
-  height: 100vh;
+  padding-bottom: 600px;
   width: 100vw;
   background-color: rgba(41, 149, 238, 0.582);
 }
@@ -34,12 +34,14 @@ a {
 
 .user-name{
   display: flex;
+  align-items: center;
 }
 
 .name{
   font-size:20px;
   font-weight: bold;
   color: white;
+  margin-right: 10px;
 }
 
 .menu-bar{
@@ -90,11 +92,12 @@ a {
   display: flex;
   align-items: center;
   padding-top: 20px;
+  
 }
 .mainarea-title{
   
   font-size: 30px;
   font-weight: bold;
   
-  margin: 0 auto;
+  margin: 30px auto;
 }

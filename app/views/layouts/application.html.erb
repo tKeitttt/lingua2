@@ -19,28 +19,31 @@
     <div class="header">
 
       <div class="app-name">
-        <a class="app-name-link" href="#">Linga</a>
+        <a class="app-name-link" href="#">Lingua</a>
       </div>
-
+      
+      <% if user_signed_in? %>
       <div class="user-name">
         <div>●</div>
-        <div class="name">Toby</div>
+        <div class="name"><%= current_user.username %></div>
         <div class="dropdown">
           <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Post articles</a>
+            
             <a class="dropdown-item" href="#">Profile</a>
             <a class="dropdown-item" href="#">Notifications</a>
-            <a class="dropdown-item" href="#">Setting</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <span class="dropdown-item"><%= link_to "Log out",destroy_user_session_path, method: :delete %></span>
           </div>
         </div>
       </div>
-      
+      <% end %>
+    
     </div>
 
-
+    <% if user_signed_in? %>
     <div class="menu-bar">
       <div class="learning">
         <div class="dropdown">
@@ -85,6 +88,8 @@
       </div>
     
     </div>
+    <% end %>
+
 
     <div class="main-area">
      <%= yield %>

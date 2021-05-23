@@ -14,6 +14,7 @@ a {
   height: 60px;
   width: 100vw;
   position: fixed;
+  z-index: 2;
   background-color: #253141;
   display: flex;
   justify-content: space-between;
@@ -47,8 +48,8 @@ a {
 .menu-bar{
  height: 40px;
  width: 100vw;
- 
- padding-top: 80px;
+ position: fixed;
+ z-index: 1;
  top:60px;
  display: flex;
  align-items: center;
@@ -98,10 +99,38 @@ a {
   
   font-size: 30px;
   font-weight: bold;
-  
+  text-align: center;
   margin: 30px auto;
 }
 
 .register-box{
   margin: 100px auto 0;
+}
+
+.search-box{
+  margin: 100px auto 0;
+
+}
+
+.search-form{
+  text-align: center;
+}
+.search-result{
+  margin-top: 20px;
+  text-align: center;
+}
+.checkbox-area{
+  text-align: center;
+  margin-top: 30px;
+}
+
+th{
+  background-color:  #253141;
+  color: white;
+  border: solid 1px black;
+}
+
+td{
+  background-color: rgb(188, 214, 211);
+  border: solid 1px black;
 }

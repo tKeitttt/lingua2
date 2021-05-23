@@ -21,6 +21,16 @@ class PhrasesController < ApplicationController
   end
 
   def search
+    @keywords = params[:keyword]
+    if @keywords != "" && @keywords != nil     
+      @split_keywords = @keywords.split(",")
+      @phrases = Phrase.all
+      @split_keywords.each do |keyword|
+        @phrases=@phrases.where(['native LIKE(?) OR foreignA LIKE(?) OR foreignB LIKE(?) OR foreignC LIKE(?)',"%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])          
+      end
+      @phrasescount=@phrases.count
+      @phrases=@phrases.page(params[:page]).per(10)
+    end
   end
 
   def exrecise

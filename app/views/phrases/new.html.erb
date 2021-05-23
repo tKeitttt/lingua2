@@ -29,7 +29,7 @@
       <%= f.label :status_id,  "status" %>
       <%= f.collection_select(:status_id, Status.all, :id, :name, {} )%>
     </div>
-    <div class="tag-field", id='tag-field'>
+    <div class="message-field", id='tag-field'>
       <%= f.label :tagname, "tag" %>
       <%= f.text_field :tagname, class:"input-tag" %>
     </div>

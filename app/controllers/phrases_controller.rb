@@ -1,7 +1,29 @@
 class PhrasesController < ApplicationController
   
   def progress
-    @progress="Hello"
+    @phrases = current_user.phrases
+      
+    # 日別登録数
+    @progressdata=@phrases.group_by_day(:created_at).size
+    @progresslabels = @progressdata.map(&:first) # 日付
+    @progressdatas = @progressdata.map(&:second) # 個数
+    
+    # 累積登録数
+    @cumulativedata = []
+    sum=0
+    @progressdatas.each do |p|
+      sum = sum+p
+      @cumulativedata<<sum
+    end
+
+    # パイチャート
+    @pielabels=["100% (completed)","50%","0%"]
+    @kkk=[]
+    @phrases.each do |pie|
+      @kkk<<pie.status_id
+    end
+    @piedatas=[@kkk.count(3),@kkk.count(2),@kkk.count(1)]
+
   end
 
   def new

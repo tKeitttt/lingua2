@@ -1,0 +1,2 @@
+class PhraseTagRelation < ApplicationRecord
+end

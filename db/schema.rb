@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_174515) do
+ActiveRecord::Schema.define(version: 2021_05_23_032533) do
+
+  create_table "phrase_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "phrase_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["phrase_id"], name: "index_phrase_tag_relations_on_phrase_id"
+    t.index ["tag_id"], name: "index_phrase_tag_relations_on_tag_id"
+  end
 
   create_table "phrases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "native", null: false
@@ -23,6 +32,12 @@ ActiveRecord::Schema.define(version: 2021_05_22_174515) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_phrases_on_user_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tagname", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,5 +56,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_174515) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "phrase_tag_relations", "phrases"
+  add_foreign_key "phrase_tag_relations", "tags"
   add_foreign_key "phrases", "users"
 end

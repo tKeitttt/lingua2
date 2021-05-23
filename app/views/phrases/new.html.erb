@@ -1,0 +1,45 @@
+<div class="register-box">
+
+
+<div class="mainarea-title">Register</div>
+<div class="form-container">
+<%= form_with model: @phrase, url: phrases_path, class:'form-wrap', local: true do |f| %>
+  <div class='message-form'>
+    <div class="message-field">
+      <%= f.label :native,  "your native language" %>
+      <%= f.text_area :native, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :foreignA,  "English" %>
+      <%= f.text_area :foreignA, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :foreignB,  "Français" %>
+      <%= f.text_area :foreignB, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :foreignC,  "Español" %>
+      <%= f.text_area :foreignC, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :explanation,  "Explanation" %>
+      <%= f.text_area :explanation, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :status_id,  "status" %>
+      <%= f.collection_select(:status_id, Status.all, :id, :name, {} )%>
+    </div>
+    <div class="tag-field", id='tag-field'>
+      <%= f.label :tagname, "tag" %>
+      <%= f.text_field :tagname, class:"input-tag" %>
+    </div>
+    <div id="search-result">
+    </div>
+  </div>
+  <div class="submit-post">
+    <%= f.submit "Send", class: "submit-btn" %>
+  </div>
+<% end %>
+</div>
+
+</div>

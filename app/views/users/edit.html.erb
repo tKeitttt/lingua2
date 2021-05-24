@@ -1,0 +1,34 @@
+<div class="login-box">
+
+<div class="useredit">
+<h2 class="mainarea-title">Edit profile</h2>
+
+<%= form_with model: current_user, local: true do |f|%>
+  <%# <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+
+
+  <div>User Name
+  <%= f.text_area :username, class:"input-default", id:"username", maxlength:"40" %>
+  </div>
+  <div>Nationality
+  <%= f.text_area :nationality, class:"input-default", id:"nationality" %>
+  </div>
+  
+  <div>Profile
+  <%= f.text_area :profile, class:"input-default", id:"nationality" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+
+</div>
+</div>

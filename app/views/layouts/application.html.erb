@@ -44,8 +44,8 @@
     
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <span class="dropdown-item"><%= link_to "Profile",user_path(current_user) %></span>
             
-            <a class="dropdown-item" href="#">Profile</a>
             <a class="dropdown-item" href="#">Notifications</a>
             <a class="dropdown-item" href="#">Settings</a>
             <span class="dropdown-item"><%= link_to "Log out",destroy_user_session_path, method: :delete %></span>
@@ -79,7 +79,8 @@
     
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Partners</a>
+            <span class="dropdown-item"><%= link_to "Partners",users_path %></span>
+            
             <a class="dropdown-item" href="#">Chat room</a>
           </div>
         </div>

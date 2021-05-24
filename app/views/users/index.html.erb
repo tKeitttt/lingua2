@@ -1,0 +1,16 @@
+<div class="usershow_box">
+
+<div class="usershow">
+<h2 class="mainarea-title">Partners</h2>
+
+
+<% @users.each do |user| %>
+<div>
+<%= user.username %>
+<%= user.nationality %>
+<%= user.profile %>
+</div>
+<% end %>
+
+</div>
+</div>

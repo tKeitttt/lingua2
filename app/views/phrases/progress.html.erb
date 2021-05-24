@@ -1,1 +1,165 @@
-<div class="mainarea-title">Progress</div>
+<div class="progress-box">
+
+  <div class="progress-title">Your progress</div>
+  
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="8000">
+
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        
+      </ol>
+
+      <div class="carousel-inner"> 
+
+        <div class="carousel-item active">
+            <span class="d-block w-100">
+              <h4 class="chart-title"><span>Plofiency level</span></h4>
+              <h6 class="total">Total:<span class="num"><%= "#{@phrases.count} " %></span>phrases</h6>
+              <canvas id="myChartPie"></canvas> 
+              <script>
+              
+              var ctx = document.getElementById("myChartPie").getContext('2d');
+              ctx.canvas.height = 240;
+              var myChart = new Chart(ctx, {
+                  type: 'doughnut',
+                  data: {
+                      
+                      labels: <%= @pielabels.to_json.html_safe %>,
+                      datasets: [{
+                          label: "",
+                          data: <%= @piedatas %>,
+                          backgroundColor: [
+                            "rgba(235, 58, 44, 0.7)",
+                            "rgba(238, 239, 54, 0.7)",
+                            "rgba(121, 204, 59, 0.7)"
+                          ],
+                          borderColor: 'rgba(0, 0, 0, 1.0)',
+                          
+                          fill: false
+                      }]
+                  },
+                  options: {
+                      
+                      cutoutPercentage: 35,
+                      
+                      title:  {
+                        display: false,
+                        text: "",
+                      },
+                      legend: {
+                      labels: {
+                          
+                          fontColor: 'black'
+                      }
+                  }
+                  }
+              });
+              </script> 
+            </span>
+        </div>
+
+        <div class="carousel-item">
+            <span class="d-block w-100">
+              <h4 class="chart-title"><span>Daily progress</span></h4>
+              <h6 class="total">Total:<span class="num"><%= "#{@phrases.count} " %></span>phrases</h6>
+              <canvas id="myChartProgress"></canvas> 
+              <script>
+              
+              var ctx = document.getElementById("myChartProgress").getContext('2d');
+              ctx.canvas.height = 240;
+              var myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      //文字列の入った配列やハッシュ等はこうしないと正しく表示されない
+                      labels: <%= @progresslabels.to_json.html_safe %>,
+                      datasets: [{
+                          label: "Daily number of posts",
+                          data: <%= @progressdatas %>,
+                          backgroundColor: 'rgba(235, 58, 44, 0.9)',
+                          borderColor: 'black',
+                          fill: false
+                      },{
+                          label: "Cumulative number of posts",
+                          data: <%= @cumulativedata %>,
+                          backgroundColor: 'rgba(11, 79, 33, 0.7)',
+                          borderColor: 'rgba(235, 58, 44, 1.0)',
+                          type: 'line',
+                          lineTension: 0
+                      }]
+                  },
+                  options: {
+                      
+                      title:  {
+                        display: false,
+                        text: "",
+                      },
+                      legend: {
+                      labels: {
+                          
+                          fontColor: 'black'
+                      },
+                      },
+                      scales: {                          // 軸設定
+                          xAxes: [                           // Ｘ軸設定
+                              {
+                                  scaleLabel: {                 // 軸ラベル
+                                      display: true,                // 表示設定
+                                      labelString: 'Date',    // ラベル
+                                      fontColor: "black",             // 文字の色
+                                      fontSize: 16                  // フォントサイズ
+                                  },
+                                  gridLines: {                   // 補助線
+                                      color: "black", // 補助線の色
+                                  },
+                                  ticks: {                      // 目盛り
+                                      fontColor: "black",             // 目盛りの色
+                                      fontSize: 14                  // フォントサイズ
+                                  }
+                              }
+                          ],
+                          yAxes: [                           // Ｙ軸設定
+                              {
+                                  scaleLabel: {                  // 軸ラベル
+                                      display: true,                 // 表示の有無
+                                      labelString: 'Phrases',     // ラベル
+                                      fontFamily: "sans-serif",
+                                      fontColor: "black",             // 文字の色
+                                      fontFamily: "sans-serif",
+                                      fontSize: 16                   // フォントサイズ
+                                  },
+                                  gridLines: {                   // 補助線
+                                      color: "black", // 補助線の色
+                                      zeroLineColor: "black"         // y=0（Ｘ軸の色）
+                                  },
+                                  ticks: {                       // 目盛り
+                                      min: 0,                        // 最小値
+                                      
+                                      
+                                      fontColor: "black",             // 目盛りの色
+                                      fontSize: 14                   // フォントサイズ
+                                  }
+                              }
+                          ]
+                      }
+                  }
+              });
+              </script> 
+            </span>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  
+
+</div>

@@ -1,0 +1,58 @@
+<div class="search-box">
+
+<div class="mainarea-title">Search phrases</div>
+
+<div class="search-form">
+<%= form_with(url: search_phrases_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "String search", class: "search-input" %>
+  <%= form.submit "search", class: "search-btn" %>
+<% end %>
+
+<%= form_with(url: search_phrases_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :tag, placeholder: "Tag search", class: "search-input" %>
+  <%= form.submit "search", class: "search-btn" %>
+<% end %>
+</div>
+
+
+<% if @phrases !=nil && @phrases!="" %>
+<h4 class="search-result"><%= "'#{@keywords}' included :#{@phrasescount} phrases" %></h4>
+
+<h5 class="checkbox-area"></h5>
+<%= paginate @phrases %>
+              <table class="table" id="targetTable" border="1">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        
+                        <th scope="col">Tag</th>
+                        <th scope="col">Native</th>
+                        <th scope="col" id="english_display">English</th>
+                        <th scope="col" id="french_display">Français</th>
+                        <th scope="col" id="spanish_display">Español</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @phrases.each_with_index do |phrase, i| %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            
+                            <td>
+                            <% phrase.tags.each do |tag| %>
+                              <div><%= "# #{tag.tagname}"%></div>
+                            <% end %>
+                            </td>
+                            <td><%= "#{phrase.native}"%></td>
+                            <td><%= "#{phrase.foreignA}"%></td>
+                            <td><%= "#{phrase.foreignB}"%></td>
+                            <td><%= "#{phrase.foreignC}"%></td>
+                            <td><%= link_to 'SHOW', edit_phrase_path(phrase.id), method: :get %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+  
+<% end %>
+
+</div>

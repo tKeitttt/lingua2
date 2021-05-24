@@ -6,11 +6,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%# slick %>
+    <%# <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> %>
+    <%# <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> %>
 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%# chartjs %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+    <%# bootstrap %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    
+    <%# slick %>
+    <%# <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -19,7 +32,7 @@
     <div class="header">
 
       <div class="app-name">
-        <a class="app-name-link" href="#">Lingua</a>
+        <%= link_to "Lingua", root_path, class:"app-name-link" %>
       </div>
       
       <% if user_signed_in? %>
@@ -51,9 +64,9 @@
     
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Progress</a>
-            <a class="dropdown-item" href="#">Register</a>
-            <a class="dropdown-item" href="#">Search phrases</a>
+            <span class="dropdown-item"><%= link_to "Progress",root_path %></span>
+            <span class="dropdown-item"><%= link_to "Register",new_phrase_path %></span>
+            <span class="dropdown-item"><%= link_to "Search phrases",search_phrases_path %></span>
             <a class="dropdown-item" href="#">Exercise</a>
           </div>
         </div>

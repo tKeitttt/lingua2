@@ -1,0 +1,20 @@
+<div class="usershow_box">
+
+<div class="usershow">
+<h2 class="mainarea-title">Profile</h2>
+
+<% if @user.image.attached? %>
+<%= image_tag @user.image.variant(resize: '150x150') %>
+<% else %>
+<%= image_tag "partner.png", size: "150x150" %>
+<% end %>
+<%= @user.username %>
+<%= @user.nationality %>
+<%= @user.profile %>
+<% if @user.id==current_user.id %>
+<%= link_to "Edit profile",edit_user_path(current_user) %>
+<% else %>
+<%= link_to "Make chat room", new_room_path(key_id:@user.id,key_name:@user.username) %>
+<% end %>
+</div>
+</div>

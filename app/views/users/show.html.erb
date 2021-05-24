@@ -3,6 +3,7 @@
 <div class="usershow">
 <h2 class="mainarea-title">Profile</h2>
 
+<%= image_tag @user.image if @user.image.attached? %>
 <%= @user.username %>
 <%= @user.nationality %>
 <%= @user.profile %>

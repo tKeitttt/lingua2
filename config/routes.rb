@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:edit,:update,:index,:show]
+  resources :rooms, only: [:new,:create]
 end

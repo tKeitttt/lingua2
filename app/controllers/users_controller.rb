@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   end
   
 
+
   def index
-    @users=User.all
+    @users=User.where.not(id: current_user.id)
   end
 
   def show
@@ -25,5 +26,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :profile, :nationality,:image)
   end
-
+  
+  
 end

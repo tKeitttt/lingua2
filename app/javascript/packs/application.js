@@ -10,6 +10,7 @@ require("channels")
 require("../check.js")
 
 require('jquery')
+
 require("bootstrap")
 //require("../slick.js")
 

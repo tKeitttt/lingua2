@@ -1,0 +1,3 @@
+
+<p></p>
+<%= link_to "Confirm",rooms_path(user_ids:[@id,current_user.id], roomname:"#{@name}&#{current_user.username}" ), method: :post %>

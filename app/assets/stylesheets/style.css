@@ -103,6 +103,7 @@ a {
   font-weight: bold;
   text-align: center;
   margin: 30px auto;
+  text-decoration: underline;
 }
 
 /* new */
@@ -181,6 +182,7 @@ td{
   font-weight: bold;
   text-align: center;
   margin: 30px auto 60px;
+  text-decoration: underline;
 }
 
 
@@ -192,4 +194,10 @@ td{
 .total{
   font-weight: bold;
   text-align: center;
+  margin:0 auto;
+  
+}
+.num{
+  font-weight: bold;
+  font-size: 25px;
 }

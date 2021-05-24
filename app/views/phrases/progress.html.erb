@@ -15,12 +15,12 @@
         <div class="carousel-item active">
             <span class="d-block w-100">
               <h4 class="chart-title"><span>Plofiency level</span></h4>
-              <h6 class="total">Total:<%= "#{@phrases.count} phrases" %></h6>
+              <h6 class="total">Total:<span class="num"><%= "#{@phrases.count} " %></span>phrases</h6>
               <canvas id="myChartPie"></canvas> 
               <script>
               
               var ctx = document.getElementById("myChartPie").getContext('2d');
-              ctx.canvas.height = 180;
+              ctx.canvas.height = 240;
               var myChart = new Chart(ctx, {
                   type: 'doughnut',
                   data: {
@@ -62,11 +62,12 @@
         <div class="carousel-item">
             <span class="d-block w-100">
               <h4 class="chart-title"><span>Daily progress</span></h4>
+              <h6 class="total">Total:<span class="num"><%= "#{@phrases.count} " %></span>phrases</h6>
               <canvas id="myChartProgress"></canvas> 
               <script>
               
               var ctx = document.getElementById("myChartProgress").getContext('2d');
-              ctx.canvas.height = 180;
+              ctx.canvas.height = 240;
               var myChart = new Chart(ctx, {
                   type: 'bar',
                   data: {
@@ -75,13 +76,13 @@
                       datasets: [{
                           label: "Daily number of posts",
                           data: <%= @progressdatas %>,
-                          backgroundColor: 'rgba(54, 239, 96, 1.0)',
+                          backgroundColor: 'rgba(235, 58, 44, 0.9)',
                           borderColor: 'black',
                           fill: false
                       },{
                           label: "Cumulative number of posts",
                           data: <%= @cumulativedata %>,
-                          backgroundColor: 'rgba(217, 104, 237, 0.6)',
+                          backgroundColor: 'rgba(11, 79, 33, 0.7)',
                           borderColor: 'rgba(235, 58, 44, 1.0)',
                           type: 'line',
                           lineTension: 0
@@ -133,8 +134,8 @@
                                   },
                                   ticks: {                       // 目盛り
                                       min: 0,                        // 最小値
-                                      max: 25,                       // 最大値
-                                      stepSize: 5,                   // 軸間隔
+                                      
+                                      
                                       fontColor: "black",             // 目盛りの色
                                       fontSize: 14                   // フォントサイズ
                                   }

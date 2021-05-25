@@ -9,4 +9,8 @@ class Article < ApplicationRecord
     validates :category_id
     validates :language_id
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :language
 end

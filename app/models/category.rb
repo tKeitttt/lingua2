@@ -3,8 +3,8 @@ class Category < ActiveHash::Base
     { id: 1, name: 'Question' },
     { id: 2, name: 'Life' },
     { id: 3, name: 'Travel' },
-    { id: 3, name: 'Business' },
-    { id: 3, name: 'Other' }
+    { id: 4, name: 'Business' },
+    { id: 5, name: 'Other' }
   ]
 
   include ActiveHash::Associations

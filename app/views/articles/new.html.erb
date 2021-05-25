@@ -1,0 +1,36 @@
+<div class="register-box">
+
+
+<div class="mainarea-title">Post article</div>
+<div class="form-container">
+<%= form_with model: @article, url: articles_path, class:'form-wrap', local: true do |f| %>
+  <div class='message-form'>
+    <div class="message-field">
+      <%= f.label :title,  "Title" %>
+      <%= f.text_area :title, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :content,  "Content" %>
+      <%= f.text_area :content, class:"input-message" %>
+    </div>
+    <div class="message-field">
+      <%= f.label :language_id,  "Language" %>
+      <%= f.collection_select(:language_id, Language.all, :id, :name, {} )%>
+    </div>
+    <div class="message-field", id='tag-field'>
+      <%= f.label :category_id, "Category" %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {} )%>
+    </div>
+    <div>Image
+<%= f.file_field :image %>
+</div>
+    <div id="search-result">
+    </div>
+  </div>
+  <div class="submit-post">
+    <%= f.submit "Send", class: "submit-btn" %>
+  </div>
+<% end %>
+</div>
+
+</div>

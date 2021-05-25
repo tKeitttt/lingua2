@@ -1,0 +1,15 @@
+<div class="index-box">
+<h2 class="mainarea-title">Your chat rooms</h2>
+
+
+<div class="rooms">
+  <% current_user.rooms.each do |room| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to room.roomname, room_messages_path(room) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>

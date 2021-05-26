@@ -3,13 +3,14 @@ a {
   text-decoration: none;
 }
 
-
+/* 全体 */
 .wrapper{
-  padding-bottom: 700px;
+  
   width: 100vw;
   background-color: rgba(21, 81, 172, 0.877);
 }
 
+/* ヘッダー */
 .header{
   height: 60px;
   width: 100vw;
@@ -22,7 +23,6 @@ a {
   border: solid 1px black;
 }
 
-
 .app-name{
   font-weight: bold;
   font-size: 40px;
@@ -30,7 +30,6 @@ a {
   margin-left: 20px;
 }
 .app-name-link{
- 
 }
 
 .user-name{
@@ -46,7 +45,7 @@ a {
   margin-right: 10px;
   margin-left: 10px;
 }
-
+/* メニューバー */
 .menu-bar{
  height: 40px;
  width: 100vw;
@@ -91,12 +90,15 @@ a {
 
 /* メインエリア */
 .main-area{
-  
+  position:fixed;
+  top:100px;
+  padding-bottom: 200px;
+  height: 100%;
   width:100vw;
   margin: 0 auto; 
-  
+  background-color: rgba(21, 81, 172, 0.877);
   align-items: center;
-  padding-top: 20px;
+  overflow: scroll;
   
 }
 .mainarea-title{
@@ -104,14 +106,14 @@ a {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-  margin: 30px auto;
+  margin: 30px auto 30px;
   text-decoration: underline;
 }
 
 /* new */
 .register-box{
   width: 100vw;
-  margin: 100px auto 0;
+  margin: 0 auto 0;
 }
 .form-container{
   width: 100vw;
@@ -145,7 +147,7 @@ a {
 /* search */
 .search-box{
   width: 80vw;
-  margin: 100px auto 0;
+  margin: 0 auto 0;
 
 }
 
@@ -175,7 +177,7 @@ td{
 /* progress */
 .progress-box{
   width: 80vw;
-  margin: 100px auto 0;
+  margin: 0 auto 0;
 }
 
 .progress-title{

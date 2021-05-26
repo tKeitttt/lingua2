@@ -1,9 +1,10 @@
 .index-box{
   width: 80vw;
-  margin: 100px auto 0;
+  margin: 0 auto 0;
 
 }
 
 .card{
   margin-bottom: 40px;
+  margin-top: 40px;
 }
